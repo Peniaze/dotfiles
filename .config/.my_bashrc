@@ -8,6 +8,9 @@
 PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")';
 PS1='\[\e[38;5;34m\]\u@\[\e[38;5;252m\]\h\[\e[0m\]:\[\e[38;5;142m\]\w\n\[\e[91;1m\]\W\[\e[38;5;166m\]${PS1_CMD1}\[\e[0m\] \$ '
 
+alias l='ls -1'
+alias lf='ls -1 -f'
+
 alias conda_en='source ~/miniconda3/bin/activate'
 alias conda_de='source ~/miniconda3/bin/deactivate'
 
