@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+array=("poweroff" "reboot" "sleep" "suspend" "hibernate")
+
+res=$(printf "%s\n" "${array[@]}" | wmenu)
+
+if [ -n "$res" ]; then
+    systemctl $res
+fi
