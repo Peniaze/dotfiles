@@ -1,0 +1,8 @@
+#!/bin/env bash
+while true; do
+    sleep 0.5;
+    swaymsg -t get_inputs |\
+        grep xkb_active_layout_name |\
+        head -n1 |\
+        sed 's/\s\{1,\}"\w\{1,\}":\ "\([^"]\{1,\}\)",/\1/'
+done

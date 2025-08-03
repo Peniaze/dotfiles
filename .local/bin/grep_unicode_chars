@@ -1,0 +1,31 @@
+#!/bin/env python
+import re
+import sys
+import argparse
+from unicodedata import name
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("grep_pattern", type=str)
+parser.add_argument("-i", "--ignore-case", action="store_true", help="Case insensitivity")
+
+args = parser.parse_args()
+
+flags = re.IGNORECASE if args.ignore_case else 0
+try:
+    pattern = re.compile(args.grep_pattern, flags=re.I)
+except Exception as e:
+    print(e)
+    sys.exit(1)
+
+max_error = 0
+
+for i in range(1000000):
+    try:
+        n = name(chr(i))
+    except ValueError:
+        max_error = i
+        continue
+    if not pattern.search(n):
+        continue
+    print(chr(i), n)

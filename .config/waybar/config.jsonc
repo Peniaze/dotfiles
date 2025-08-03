@@ -24,17 +24,18 @@
         "battery",
         "network",
         "pulseaudio",
-        "keyboard-state"
+        "keyboard-state",
+        "custom/keyboard"
     ],
 
     "keyboard-state": {
         "capslock": true,
         "format": {
-            "capslock": "C {icon}"
+            "capslock": "Caps {icon}"
         },
         "format-icons": {
-            "locked": "",
-            "unlocked": ""
+            "locked": "●",
+            "unlocked": "○"
         }
     },
     "sway/workspaces": {
@@ -92,10 +93,16 @@
     "pulseaudio": {
         "scroll-step": 5,
         "max-volume": 150,
-        "format": "vol {volume}%",
+        "format": "🕪 {volume}%",
         "format-bluetooth": "vol {volume}%",
+        "format-muted": "🔇",
         "nospacing": 1,
         "on-click": "pavucontrol",
         "tooltip": false
+    },
+
+    "custom/keyboard": {
+        "format": "⌨ {}",
+        "exec": "~/.local/bin/keyboard_input"
     }
 }
