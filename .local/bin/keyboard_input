@@ -1,8 +1,14 @@
 #!/bin/env bash
-while true; do
-    sleep 0.5;
-    swaymsg -t get_inputs |\
-        grep xkb_active_layout_name |\
-        head -n1 |\
-        sed 's/\s\{1,\}"\w\{1,\}":\ "\([^"]\{1,\}\)",/\1/'
-done
+kb=$(swaymsg -t get_inputs |\
+    grep xkb_active_layout_name |\
+    head -n1 |\
+    sed 's/\s\{1,\}"\w\{1,\}":\ "\([^"]\{1,\}\)",/\1/')
+tp=$(swaymsg -t get_inputs |\
+    jq -r '.[] | select(.identifier == "2:7:SynPS/2_Synaptics_TouchPad") | .libinput.send_events')
+# echo {\"kb\": \"$kb\", \"tp\": \"$tp\"}
+if [ $tp == "enabled" ]; then
+    echo ⌨  $kb Touchpad $tp;
+else
+    echo ⌨  $kb Touchpad $tp
+fi
+# printf "%s %s " $kb $tp

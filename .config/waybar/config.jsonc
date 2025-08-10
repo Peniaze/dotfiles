@@ -93,7 +93,8 @@
     "pulseaudio": {
         "scroll-step": 5,
         "max-volume": 150,
-        "format": "🕪 {volume}%",
+        //"format": "🕪 {volume}%",
+        "format": "vol {volume}%",
         "format-bluetooth": "vol {volume}%",
         "format-muted": "🔇",
         "nospacing": 1,
@@ -102,7 +103,9 @@
     },
 
     "custom/keyboard": {
-        "format": "⌨ {}",
+        //"return-type": "json",
+        "interval": 1,
+        "format": "{}",
         "exec": "~/.local/bin/keyboard_input"
     }
 }

@@ -50,6 +50,8 @@ set $term kitty
 # set $menu tofi-drun | xargs swaymsg exec --
 set $menu wmenu-run
 
+bindsym $mod+t input 2:7:SynPS/2_Synaptics_TouchPad events toggle enabled disabled
+
 # common bindings
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
