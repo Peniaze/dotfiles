@@ -11,6 +11,11 @@ bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
 bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
 output * bg #928374 solid_color
+workspace 1 output eDP-1
+workspace 2 output HDMI-A-1
+output HDMI-A-1 pos 1920 0
+output eDP-1 pos 0 0
+
 
 gaps inner 4
 gaps outer 4
@@ -20,7 +25,8 @@ default_border pixel 2
 default_floating_border pixel 2
 
 # class					 border  backgr. text    indicator child_border
-client.focused           #3c3836 #7c6f64 #1d2021 #3c3836   #3c3836
+client.focused           #3c3836 #7c6f64 #1d2021 #3c3836   #4c9846
+# client.focused           #3c3836 #7c6f64 #1d2021 #3c3836   #3c3836
 client.focused_inactive  #282828 #282828 #ddc7a1 #282828   #282828
 client.unfocused		 #282828 #282828 #ddc7a1 #282828   #282828
 client.urgent			 #d8a657 #d8a657 #1d2021 #d8a657   #d8a657
@@ -59,6 +65,9 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec $HOME/.config/sway/exit_sway.sh
 floating_modifier $mod normal
+
+# Toggle power on laptop display
+bindsym $mod+p output eDP-1 power toggle
 
 # more bindings
 bindsym $mod+$left focus left
