@@ -4,7 +4,7 @@ kb=$(swaymsg -t get_inputs |\
     head -n1 |\
     sed 's/\s\{1,\}"\w\{1,\}":\ "\([^"]\{1,\}\)",/\1/')
 tp=$(swaymsg -t get_inputs |\
-    jq -r '.[] | select(.identifier == "2:7:SynPS/2_Synaptics_TouchPad") | .libinput.send_events')
+    jq -r '.[] | select(.type == "touchpad") | .libinput.send_events')
 # echo {\"kb\": \"$kb\", \"tp\": \"$tp\"}
 if [ $tp == "enabled" ]; then
     echo ⌨  $kb Touchpad $tp;
