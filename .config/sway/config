@@ -10,16 +10,19 @@ bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
 bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
 bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
+# Media keys
 bindsym XF86AudioNext exec 'playerctl next'
 bindsym XF86AudioPrev exec 'playerctl previous'
 bindsym XF86AudioPlay exec 'playerctl play-pause'
 bindsym XF86AudioStop exec 'playerctl stop'
 
+# Display configuration
 output * bg #928374 solid_color
 workspace 1 output eDP-1
 workspace 2 output HDMI-A-1
 output HDMI-A-1 pos 1920 0
 output eDP-1 pos 0 0
+
 
 
 gaps inner 4
@@ -61,7 +64,12 @@ set $term kitty
 # set $menu tofi-drun | xargs swaymsg exec --
 set $menu wmenu-run
 
+# Toggle touchpad
 bindsym $mod+t input type:touchpad events toggle enabled disabled
+
+# Move workspace to other monitor
+bindsym $mod+Ctrl+h move workspace to output left
+bindsym $mod+Ctrl+l move workspace to output right
 
 # common bindings
 bindsym $mod+Return exec $term
