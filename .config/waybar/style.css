@@ -15,7 +15,10 @@ window#waybar {
 
 tooltip {
     background-color: #1d2021;
-    border: 2px solid #7c6f64;
+    border: 1px solid #3c5f00;
+}
+tooltip * {
+    color: #aaaaaa;
 }
 
 #clock,
@@ -26,6 +29,7 @@ tooltip {
 #network,
 #keyboard-state,
 #custom-keyboard,
+#bluetooth,
 #pulseaudio {
     margin: 6px 6px 6px 0px;
     padding: 2px 8px;
@@ -78,6 +82,7 @@ tooltip {
 #network,
 #keyboard-state,
 #custom-keyboard,
+#bluetooth,
 #pulseaudio {
     background-color: #ddc7a1;
     border: 2px solid #c7ab7a;

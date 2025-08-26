@@ -1,0 +1,14 @@
+#!/bin/bash
+
+LINE=$(bluetoothctl show | grep -i powered)
+
+# IFS=':' bluetoothctl show | grep -i powered |\
+#     read -a POWERED
+IFS=': ' read -a POWERED <<< "$LINE"
+
+if [[ "${POWERED[1]}" == "yes" ]]; then
+    bluetoothctl power off;
+else
+    bluetoothctl power on;
+fi
+

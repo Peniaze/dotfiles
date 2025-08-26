@@ -6,6 +6,7 @@
 .conda/
 .config/GIMP/
 .config/KDE/
+.config/OpenSCAD/
 .config/PlasmaDiscoverUpdates
 .config/QtProject.conf
 .config/QtProject/
@@ -94,6 +95,7 @@
 .config/session/
 .config/specialmailcollectionsrc
 .config/spectaclerc
+.config/systemmonitorrc
 .config/systemsettingsrc
 .config/trashrc
 .config/user-dirs.dirs
